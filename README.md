@@ -1,5 +1,5 @@
 NOTE: This is an in development plugin forked from duddu/cordova-plugin-antitampering
-=====================================================================================
+
 Anti-Tampering Cordova Plugin
 =============================
 
