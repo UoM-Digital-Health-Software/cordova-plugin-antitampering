@@ -72,6 +72,12 @@ By default (since v0.2.0), the integrity check run against all the assets found.
 
 The value of this variable should be a list of extensions, separated by comma or space. 
 
+### Exclude directories by name
+
+This fork allows you to define directories which you wish to exclude from the assets which are checked by the plugin.
+
+    cordova plugin add cordova-plugin-antitampering --variable EXCLUDE_DIRECTORIES="www\lib" --save
+
 ### Debug Detection
 
 Optional debug detection can be enabled using the `ENABLE_DEBUG_DETECTION` variable (default `false`) while installing the plugin:
