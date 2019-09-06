@@ -18,6 +18,7 @@
     </js-module>
 
     <preference name="EXCLUDE_ASSETS_EXTENSIONS" default=" " />
+    <preference name="EXCLUDE_DIRECTORIES" default=" " />
     <preference name="ENABLE_CORDOVA_CALLBACK" default="false" />
     <preference name="ENABLE_DEBUG_DETECTION" default="false" />
 
