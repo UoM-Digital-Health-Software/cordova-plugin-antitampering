@@ -19,7 +19,7 @@ Install latest release from npm:
 
 Install latest commit from branch develop:
 
-    cordova plugin add https://github.com/duddu/cordova-plugin-antitampering#develop
+    cordova plugin add https://github.com/henrytranter/cordova-plugin-antitampering#develop
 
 ## Usage
 
