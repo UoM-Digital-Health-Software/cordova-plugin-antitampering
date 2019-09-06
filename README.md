@@ -1,8 +1,5 @@
-NOTE: This is an in development plugin forked from duddu/cordova-plugin-antitampering
-
-Anti-Tampering Cordova Plugin
-=============================
-
+Anti-Tampering Cordova Plugin - with directory exclusion
+========================================================
 
 ## Installation
 
