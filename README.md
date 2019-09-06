@@ -1,3 +1,5 @@
+NOTE: This is an in development plugin forked from duddu/cordova-plugin-antitampering
+
 Anti-Tampering Cordova Plugin
 =============================
 
@@ -12,10 +14,6 @@ The plugin also provides optional **debug detection**, to prevent your App from 
 Supports Android and iOS.
 
 ## Installation
-
-Install latest release from npm:
-
-    cordova plugin add cordova-plugin-antitampering
 
 Install latest commit from branch develop:
 
