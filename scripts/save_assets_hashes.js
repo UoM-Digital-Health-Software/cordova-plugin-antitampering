@@ -36,17 +36,41 @@ module.exports = function (context) {
         return new RegExp('.*\.(' + extensions.join('|') + ')$');
     }
 
+    function isDirectoryToIgnore(dir) {
+        var directoryPref = helpers.getPluginPreference(context, 'EXCLUDE_DIRECTORIES');
+        if (typeof directoryPref !== 'string' || !directoryPref.trim().length) {
+            if (helpers.isVerbose(context)) {
+                process.stdout.write('No directories to exclude provided \n');
+            }
+            return false;
+        }
+
+        directoryPref.split(/\s+|,+/).forEach(function (excludeDir) {
+            if (dir.includes(excludeDir)) {
+                return true;
+            }
+        });
+
+        return false;
+    }
+
     function getPlatformAssets (dir) {
+        process.stdout.write("DIRECTORY: ");
+        process.stdout.write(dir);
+        process.stdout.write("\n");
+        
         var assetsList = [];
         var list = fs.readdirSync(dir);
         list.map(function (file) {
             var filePath = path.join(dir, file);
-            if (fs.statSync(filePath).isDirectory()) {
-                var subDirList = getPlatformAssets(filePath, excludeExts);
-                assetsList = assetsList.concat(subDirList);
-            }
-            if (fs.statSync(filePath).isFile() && (!excludeExts || !excludeExts.test(file))) {
-                assetsList.push(filePath);
+            if (!isDirectoryToIgnore(filePath)) {
+                if (fs.statSync(filePath).isDirectory()) {
+                    var subDirList = getPlatformAssets(filePath, excludeExts);
+                    assetsList = assetsList.concat(subDirList);
+                }
+                if (fs.statSync(filePath).isFile() && (!excludeExts || !excludeExts.test(file))) {
+                    assetsList.push(filePath);
+                }
             }
         });
         return assetsList;
