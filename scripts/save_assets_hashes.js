@@ -45,20 +45,17 @@ module.exports = function (context) {
             return false;
         }
 
+        var isExcludeDir = false;
         directoryPref.split(/\s+|,+/).forEach(function (excludeDir) {
-            if (dir.includes(excludeDir)) {
-                return true;
+            if(dir.includes(excludeDir)) {
+                isExcludeDir = true;
             }
         });
 
-        return false;
+        return isExcludeDir;
     }
 
-    function getPlatformAssets (dir) {
-        process.stdout.write("DIRECTORY: ");
-        process.stdout.write(dir);
-        process.stdout.write("\n");
-        
+    function getPlatformAssets (dir) {        
         var assetsList = [];
         var list = fs.readdirSync(dir);
         list.map(function (file) {
