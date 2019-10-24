@@ -47,8 +47,10 @@ module.exports = function (context) {
 
         var isExcludeDir = false;
         directoryPref.split(/\s+|,+/).forEach(function (excludeDir) {
-            if(dir.includes(excludeDir)) {
-                isExcludeDir = true;
+            if(excludeDir !== '') {
+                if(dir.includes(excludeDir)) {
+                    isExcludeDir = true;
+                }
             }
         });
 
