@@ -50,6 +50,9 @@ module.exports = function (context) {
             if(excludeDir !== '') {
                 if(dir.includes(excludeDir)) {
                     isExcludeDir = true;
+                    if (helpers.isVerbose(context)) {
+                        process.stdout.write('Excluding following directory: ' + dir + ' \n');
+                    }
                 }
             }
         });
